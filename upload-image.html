@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>ИА-Изображения - Модерация</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="assets/css/stylesheet.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="navigationBar">
+    <div class="container-fluid justify-content-center" style="position: absolute; height: 80px;">
+        <div class="row justify-content-center h-100 align-items-center">
+            <div class="col col-lg-12 text-center">
+                <p class="title"  style="margin-bottom: 0;">Новая картинка</p>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex hstack gap-4 ps-5 py-1 navigationItem">
+        <div class="hstack gap-3 justify-content-center" style="z-index: 1;">
+            <img src="assets/img/logo.webp" class="img-fluid">
+            <a onclick="window.location='index.html'" class="navigationLink">ИА-Изображения</a>
+        </div>
+    </div>
+</div>
+<div class="container custom-container my-5">
+    <div class="row justify-content-center">
+        <div class="col col-lg-6">
+            <img src="assets/img/spring.webp" class="img-fluid" id="imagePreview" style="display: none;">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col col-lg-12">
+            <div class="container custom-container">
+                <form class="was-validated" id="imageUploadForm">
+                    <div class="row my-5 gap-3 justify-content-center">
+                        <div class="col col-lg-12 text-center">
+                            <label for="imageInput" id="imageInputLabel">Выберите картинку для загрузки (не больше 5МБ):</label>
+                            <input type="file" id="imageInput" accept="image/*" onchange="previewImage(event)">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col col-lg-12 text-center">
+                            <button type="submit" class="btn btn-success btn-lg" id="approveButton" value="approve" hidden>
+                                Загрузить на проверку
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+                                      hidden></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col col-lg-12 text-center">
+                            <p class="title" id="successLabel" hidden>Картинка успешно отправлена на модерацию! Страница сейчас перезагрузится</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="assets/js/upload-image.js"></script>
+</body>
+</html>

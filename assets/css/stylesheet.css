@@ -1,0 +1,203 @@
+@font-face {
+    font-family: MabryLightPro;
+    src: url('../fonts/mabry-light-pro.woff');
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #1f1f1f;
+    min-width: 378px;
+}
+
+.navigationBar {
+    height: 80px;
+    max-height: 80px;
+    gap: 110px;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    background: black;
+}
+
+.navigationBar .navigationItem {
+    height: 100%;
+}
+
+.navigationLink {
+    color: ghostwhite;
+    cursor: pointer;
+}
+
+.navigationBar .navigationLink {
+    text-decoration: none;
+}
+
+.navigationBar img {
+    max-height: 90%;
+}
+
+/*a.navigationLink:hover {*/
+/*    color: #9FBC66;*/
+/*}*/
+
+p {
+    font-family: MabryLightPro, sans-serif;
+    color: #FFFFFF;
+}
+
+label {
+    font-family: MabryLightPro, sans-serif;
+    color: #FFFFFF;
+    font-size: 18px;
+}
+
+p.title {
+    font-size: 23px;
+}
+
+p.sectionTitle {
+    font-size: 38px;
+}
+
+.blue-line {
+    width: 100px;
+    height: 5px;
+}
+
+p.paragraph {
+    font-family: MabryLightPro, sans-serif;
+    color: #CCCCCC;
+    font-size: 18px;
+}
+
+
+.custom-container {
+    max-width: 1400px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.exampleImage {
+    overflow: hidden;
+    position: relative;
+}
+
+.tape {
+    background-color: seagreen;
+    transform: rotate(45deg);
+    width: 45%;
+    z-index: 1;
+    bottom: 5%;
+    left: -11%;
+    color: white;
+    position: absolute;
+}
+
+
+.header {
+    min-height: 300px;
+}
+
+.header p.title {
+    font-size: 64px;
+}
+
+
+.header p.paragraph {
+    font-size: 21px;
+}
+
+.about {
+
+}
+
+.footer {
+    gap: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 120px;
+    background-color: black;
+}
+
+.footer p {
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 0;
+    color: #CCCCCC;
+}
+
+
+.footer .navigationLink {
+    text-decoration: none;
+    color: #4078ae
+}
+
+.footer .navigationItem {
+    height: 100%;
+}
+
+.footer img {
+    max-height: 90%;
+}
+
+.form button:disabled .spinner-border {
+    color: white;
+}
+
+.form .form-group button:disabled {
+    background: rgba(95, 142, 0, 0.8);
+    border-radius: 32px;
+    border-width: 0;
+}
+
+input[type="file"] {
+    color: white; /* Set the text color to white */
+    background-color: black; /* Set the background color to black */
+}
+
+.form .sent {
+    position: absolute;
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 19px;
+    /* identical to box height */
+
+    text-align: center;
+
+    transition: opacity .25s ease-out;
+    opacity: 0;
+    visibility: hidden;
+    color: white;
+
+}
+
+
+@media (max-width: 1000px) { /* Apply the styles for screens smaller than the Bootstrap sm breakpoint */
+    .header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .header p.title {
+        font-size: 54px;
+    }
+
+    .header p.paragraph {
+        font-size: 18px;
+    }
+
+    .custom-container {
+        max-width: 900px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.about {
+    background-color: black;
+}
