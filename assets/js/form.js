@@ -2,7 +2,7 @@ let currentImageId = -1;
 
 function sendImageLabelingForm(singleWord, description, emotions) {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://europe-west1-elena-levin-website.cloudfunctions.net/images/annotate", true);
+    xhr.open("POST", "https://api.ia-images.ru/annotations", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     let jsonData = JSON.stringify({
         singleWord: singleWord,
@@ -70,7 +70,7 @@ function updateSendButtonStateToLoading() {
 
 function fetchImage() {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://europe-west1-elena-levin-website.cloudfunctions.net/images/label", true);
+    xhr.open("GET", "https://api.ia-images.ru/images", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
     xhr.send();

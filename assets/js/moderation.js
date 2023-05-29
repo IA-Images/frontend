@@ -4,16 +4,15 @@ let currentImageId = -1;
 function submitReview(e) {
     if (e.preventDefault) e.preventDefault();
     //
-    const submitButtonValue = e.submitter.value;
 
-    updateButtonStateToSuccess(e.submitter);
-    // updateButtonStateToLoading(e.submitter);
+    submitModeration(e.submitter)
+    updateButtonStateToLoading(e.submitter);
     disableAllButtons();
 }
 
 function submitModeration(button) {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://europe-west1-elena-levin-website.cloudfunctions.net/images/annotate", true);
+    xhr.open("POST", "https://api.ia-images/images/review", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     let jsonData = JSON.stringify({
         isSafe: button.value === "approve",
@@ -22,7 +21,7 @@ function submitModeration(button) {
 
     xhr.send(jsonData);
     xhr.onerror = async function () {
-        resetImageLabelingForm()
+        updateSendButtonStateToDefault()
     }
     xhr.onload = async function () {
         updateButtonStateToSuccess(button)
@@ -61,7 +60,7 @@ function updateButtonStateToLoading(button) {
 
 function fetchImage() {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://europe-west1-elena-levin-website.cloudfunctions.net/images/moderation", true);
+    xhr.open("GET", "https://api.ia-images/images/review", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
     xhr.onerror = async function () {
