@@ -65,36 +65,48 @@ function uploadImage(button) {
     var file = fileInput.files[0];
 
     // Create a FormData object and append the file to it
-    var formData = new FormData();
-    formData.append('body', file);
+    console.log(file)
+    var reader = new FileReader();
 
-    // Create an AJAX request
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://api.ia-images.ru/images', true);
+    reader.onload = function(e) {
+    e.target.result;
 
 
-    // Define the event listeners
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            // File upload successful
-            console.log('File uploaded successfully.');
-            updateButtonStateToSuccess(button)
-            setTimeout(function() {
-                location.reload();
-            }, 3000);
-        } else {
-            // File upload failed
-            updateButtonStateToDefault(button)
-            console.error('File upload failed.');
-        }
-    };
+        var formData = new FormData();
+        formData.append('body', e.target.result);
 
-    xhr.onerror = function() {
-        console.error('An error occurred during the file upload.');
-    };
+        // Create an AJAX request
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://api.ia-images.ru/images', true);
 
-    // Send the AJAX request with the form data
-    xhr.send(formData);
+
+        // Define the event listeners
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                // File upload successful
+                console.log('File uploaded successfully.');
+                updateButtonStateToSuccess(button)
+                setTimeout(function() {
+                    location.reload();
+                }, 3000);
+            } else {
+                // File upload failed
+                updateButtonStateToDefault(button)
+                console.error('File upload failed.');
+            }
+        };
+
+        xhr.onerror = function() {
+            console.error('An error occurred during the file upload.');
+        };
+
+        // Send the AJAX request with the form data
+        xhr.send(formData);
+    }
+
+    reader.readAsDataURL(file);
+
+
 }
 
 
