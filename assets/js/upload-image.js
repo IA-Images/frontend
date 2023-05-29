@@ -65,48 +65,36 @@ function uploadImage(button) {
     var file = fileInput.files[0];
 
     // Create a FormData object and append the file to it
-    console.log(file)
-    var reader = new FileReader();
+    var formData = new FormData();
+    formData.append('body', file);
 
-    reader.onload = function(e) {
-    e.target.result;
-
-
-        var formData = new FormData();
-        formData.append('body', e.target.result);
-
-        // Create an AJAX request
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://api.ia-images.ru/images', true);
+    // Create an AJAX request
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://api.ia-images.ru/images', true);
 
 
-        // Define the event listeners
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                // File upload successful
-                console.log('File uploaded successfully.');
-                updateButtonStateToSuccess(button)
-                setTimeout(function() {
-                    location.reload();
-                }, 3000);
-            } else {
-                // File upload failed
-                updateButtonStateToDefault(button)
-                console.error('File upload failed.');
-            }
-        };
+    // Define the event listeners
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // File upload successful
+            console.log('File uploaded successfully.');
+            updateButtonStateToSuccess(button)
+            setTimeout(function() {
+                location.reload();
+            }, 3000);
+        } else {
+            // File upload failed
+            updateButtonStateToDefault(button)
+            console.error('File upload failed.');
+        }
+    };
 
-        xhr.onerror = function() {
-            console.error('An error occurred during the file upload.');
-        };
+    xhr.onerror = function() {
+        console.error('An error occurred during the file upload.');
+    };
 
-        // Send the AJAX request with the form data
-        xhr.send(formData);
-    }
-
-    reader.readAsDataURL(file);
-
-
+    // Send the AJAX request with the form data
+    xhr.send(formData);
 }
 
 
