@@ -12,7 +12,7 @@ function submitReview(e) {
 
 function submitModeration(button) {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://api.ia-images/images/review", true);
+    xhr.open("POST", "https://api.ia-images.ru/images/review", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     let jsonData = JSON.stringify({
         isSafe: button.value === "approve",
@@ -60,7 +60,7 @@ function updateButtonStateToLoading(button) {
 
 function fetchImageForReview() {
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://api.ia-images/images/review", true);
+    xhr.open("GET", "https://api.ia-images.ru/images/review", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
     xhr.onerror = async function () {
