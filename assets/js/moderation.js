@@ -58,13 +58,13 @@ function updateButtonStateToLoading(button) {
     button.disabled = true;
 }
 
-function fetchImage() {
+function fetchImageForReview() {
     let xhr = new XMLHttpRequest();
     xhr.open("GET", "https://api.ia-images/images/review", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
     xhr.onerror = async function () {
-
+      console.log("cannot download image")
     }
     xhr.onload = async function () {
         const jsonData = JSON.parse(xhr.responseText);
@@ -73,8 +73,11 @@ function fetchImage() {
         let image = document.getElementById("imageForModeration")
         image.src = imageUrl;
     }
+
+    xhr.send();
 }
 
+window.addEventListener('load', fetchImageForReview);
 
 let form = document.getElementById('submitModerationForm');
 if (form.attachEvent) {
@@ -85,4 +88,3 @@ if (form.attachEvent) {
     form.addEventListener("submit", submitReview);
 }
 
-window.addEventListener('load', fetchImage);

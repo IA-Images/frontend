@@ -73,7 +73,7 @@ function fetchImage() {
     xhr.open("GET", "https://api.ia-images.ru/images", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
-    xhr.send();
+
     xhr.onerror = async function () {
 
     }
@@ -84,6 +84,8 @@ function fetchImage() {
         let image = document.getElementById("imageForLabeling")
         image.src = imageUrl;
     }
+
+    xhr.send();
 }
 
 function updateSendButtonStateToSuccess() {

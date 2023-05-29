@@ -70,7 +70,7 @@ function uploadImage(button) {
 
     // Create an AJAX request
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://api.ia-images.ru/images', true);
+    xhr.open('POST', 'https://67lug26ldmg46dulczf5pcjwv40nfsrf.lambda-url.eu-central-1.on.aws', true);
 
 
     // Define the event listeners
