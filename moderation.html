@@ -22,7 +22,7 @@
 <div class="container custom-container my-5">
   <div class="row justify-content-center">
     <div class="col col-lg-6">
-      <img class="img-fluid" id="imageForModeration">
+      <img src="assets/img/loading.gif" class="img-fluid center-img" id="imageForModeration">
     </div>
   </div>
   <div class="row justify-content-center">
@@ -31,15 +31,20 @@
         <form class="was-validated" id="submitModerationForm">
           <div class="hstack my-5 gap-3 justify-content-center">
 
-            <button type="submit" class="btn btn-success btn-lg" id="approveButton" value="approve">Одобрить и продолжить
+            <button type="submit" class="btn btn-success btn-lg" id="approveButton" value="approve" disabled>Одобрить и продолжить
               <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" hidden></span>
             </button>
-            <button type="submit" class="btn btn-danger btn-lg" id="rejectButton" value="reject">Отклонить и продолжить
+            <button type="submit" class="btn btn-danger btn-lg" id="rejectButton" value="reject" disabled>Отклонить и продолжить
               <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" hidden></span>
             </button>
           </div>
         </form>
       </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col col-lg-12 text-center">
+      <p class="title" id="successLabel" hidden>Спасибоо, сейчас страница перезагрузится со следующим изображением</p>
     </div>
   </div>
 </div>

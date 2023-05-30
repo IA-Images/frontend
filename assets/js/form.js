@@ -16,7 +16,7 @@ function sendImageLabelingForm(singleWord, description, emotions) {
         resetImageLabelingForm()
     }
     xhr.onload = async function () {
-        updateSendButtonStateToSuccess()
+        updateStateToSuccess()
         setTimeout(function() {
             location.reload();
         }, 1000);
@@ -83,17 +83,26 @@ function fetchImage() {
         currentImageId = jsonData.id;
         let image = document.getElementById("imageForLabeling")
         image.src = imageUrl;
+
+        setTimeout(function() {
+            let buttonApprove = document.getElementById('sendImageLabelingButton');
+            buttonApprove.disabled = false;
+        }, 2000);
     }
 
     xhr.send();
 }
 
-function updateSendButtonStateToSuccess() {
+
+// FIXME!
+function updateStateToSuccess() {
     let button = document.getElementById('sendImageLabelingButton');
     button.style.visibility = 'hidden'
-    let textNode = button.parentElement.querySelector('.sent');
-    textNode.style.visibility = 'visible';
-    textNode.style.opacity = '1'
+
+
+    let successLabel = document.getElementById('successLabel');
+    successLabel.style.visibility = 'visible';
+    successLabel.style.opacity = '1'
 }
 
 let form = document.getElementById('submitImageLabelingForm');

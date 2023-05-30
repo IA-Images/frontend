@@ -24,18 +24,22 @@ function submitModeration(button) {
         updateSendButtonStateToDefault()
     }
     xhr.onload = async function () {
-        updateButtonStateToSuccess(button)
+        updateViewStateToSuccess()
         setTimeout(function() {
             location.reload();
         }, 1000);
     }
 }
 
-function updateButtonStateToSuccess(button) {
-    button.style.visibility = 'hidden'
-    let textNode = button.parentElement.querySelector('.sent');
-    textNode.style.visibility = 'visible';
-    textNode.style.opacity = '1'
+function updateViewStateToSuccess() {
+    let buttonApprove = document.getElementById('approveButton');
+    let buttonReject = document.getElementById('rejectButton');
+    buttonApprove.style.visibility = 'hidden'
+    buttonReject.style.visibility = 'hidden'
+
+    let successLabel = document.getElementById('successLabel');
+    successLabel.style.visibility = 'visible';
+    successLabel.style.opacity = '1'
 }
 
 function updateSendButtonStateToDefault() {
@@ -72,6 +76,14 @@ function fetchImageForReview() {
         currentImageId = jsonData.id;
         let image = document.getElementById("imageForModeration")
         image.src = imageUrl;
+
+
+        setTimeout(function() {
+            let buttonApprove = document.getElementById('approveButton');
+            let buttonReject = document.getElementById('rejectButton');
+            buttonApprove.disabled = false;
+            buttonReject.disabled = false;
+        }, 2000);
     }
 
     xhr.send();

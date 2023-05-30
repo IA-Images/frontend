@@ -29,7 +29,7 @@
   <div class="container custom-container my-5">
     <div class="row justify-content-center">
       <div class="col col-lg-6">
-        <img class="img-fluid" id="imageForLabeling">
+        <img src="assets/img/loading.gif" class="img-fluid center-img" id="imageForLabeling">
       </div>
     </div>
     <div class="row justify-content-center">
@@ -57,12 +57,17 @@
               </div>
             </div>
             <div class="form-group row my-5">
-              <button type="submit" class="btn btn-success btn-lg" id="sendImageLabelingButton">Отправить и продолжить
+              <button type="submit" class="btn btn-success btn-lg" id="sendImageLabelingButton" disabled>Отправить и продолжить
                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" hidden></span>
               </button>
             </div>
           </form>
         </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col col-lg-12 text-center">
+        <p class="title" id="successLabel" hidden>Спасибо, страница сейчас перезагрузится со следующей картинкой!</p>
       </div>
     </div>
   </div>

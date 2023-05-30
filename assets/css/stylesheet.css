@@ -23,6 +23,11 @@ body {
     background: black;
 }
 
+.center-img {
+    display: block;
+    margin: 0 auto;
+}
+
 .navigationBar .navigationItem {
     height: 100%;
 }
