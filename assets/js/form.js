@@ -98,8 +98,7 @@ function fetchImage() {
 function updateStateToSuccess() {
     let button = document.getElementById('sendImageLabelingButton');
     button.style.visibility = 'hidden'
-
-
+    
     let successLabel = document.getElementById('successLabel');
     successLabel.style.visibility = 'visible';
     successLabel.style.opacity = '1'

@@ -77,7 +77,6 @@ function fetchImageForReview() {
         let image = document.getElementById("imageForModeration")
         image.src = imageUrl;
 
-
         setTimeout(function() {
             let buttonApprove = document.getElementById('approveButton');
             let buttonReject = document.getElementById('rejectButton');

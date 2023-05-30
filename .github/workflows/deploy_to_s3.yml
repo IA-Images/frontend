@@ -26,3 +26,7 @@ jobs:
             aws s3 rm s3://${{ secrets.S3_BUCKET_NAME }} --recursive --include "*"
             aws s3 sync ./ s3://${{ secrets.S3_BUCKET_NAME }} --exclude ".*" --delete
 
+      - name: Invalidate CloudFront Cache
+        run: |
+            aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+
