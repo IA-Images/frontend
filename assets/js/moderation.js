@@ -27,19 +27,19 @@ function submitModeration(button) {
         updateViewStateToSuccess()
         setTimeout(function() {
             location.reload();
-        }, 1000);
+        }, 2000);
     }
 }
 
 function updateViewStateToSuccess() {
     let buttonApprove = document.getElementById('approveButton');
     let buttonReject = document.getElementById('rejectButton');
-    buttonApprove.style.visibility = 'hidden'
-    buttonReject.style.visibility = 'hidden'
+    buttonApprove.style.visibility = 'hidden';
+    buttonReject.style.visibility = 'hidden';
 
     let successLabel = document.getElementById('successLabel');
-    successLabel.style.visibility = 'visible';
-    successLabel.style.opacity = '1'
+    successLabel.hidden = false;
+    successLabel.style.opacity = '1';
 }
 
 function updateSendButtonStateToDefault() {

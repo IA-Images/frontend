@@ -94,14 +94,13 @@ function fetchImage() {
 }
 
 
-// FIXME!
+
 function updateStateToSuccess() {
     let button = document.getElementById('sendImageLabelingButton');
-    button.style.visibility = 'hidden'
-    
+    button.style.visibility = 'hidden';
+
     let successLabel = document.getElementById('successLabel');
-    successLabel.style.visibility = 'visible';
-    successLabel.style.opacity = '1'
+    successLabel.hidden = false;
 }
 
 let form = document.getElementById('submitImageLabelingForm');
